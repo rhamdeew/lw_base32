@@ -1,4 +1,4 @@
-FROM ruby:2.7-slim-bullseye
+FROM ruby:3.1-slim-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NOWARNINGS="yes" \
@@ -43,8 +43,8 @@ RUN sed -e '/bullseye-updates/ s/^#*/#/' -i /etc/apt/sources.list && \
 
 RUN corepack enable && \
     corepack prepare yarn@stable --activate && \
-    gem update --system 3.3.22 > /dev/null && \
-    gem install bundler -v 2.4.22 --silent && \
+    gem update --system 3.5.23 > /dev/null && \
+    gem install bundler -v 2.5.23 --silent && \
     echo "alias m='make'\n\
 alias ms='make start'\n\
 alias mss='make start_no_async'\n\
